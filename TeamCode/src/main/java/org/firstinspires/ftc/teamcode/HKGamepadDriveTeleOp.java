@@ -14,6 +14,8 @@ public class HKGamepadDriveTeleOp extends OpMode {
     double leftWheelPower;
     double rightWheelPower;
     double servoControl;
+    double armControl;
+    double clawControl;
 
 
     @Override
