@@ -4,6 +4,7 @@ package org.firstinspires.ftc.teamcode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp(name="HK Arcade Drive", group="Training")
 public class HKGamepadArcadeDriveTeleOp extends OpMode {
@@ -11,6 +12,9 @@ public class HKGamepadArcadeDriveTeleOp extends OpMode {
     DcMotor leftWheel;
     DcMotor rightWheel;
     DcMotor armControl;
+
+    Servo leftClaw;
+    Servo rightClaw;
 
 
 
@@ -24,6 +28,8 @@ public class HKGamepadArcadeDriveTeleOp extends OpMode {
         leftWheel = hardwareMap.dcMotor.get("leftMotor");
         rightWheel = hardwareMap.dcMotor.get("rightMotor");
         armControl = hardwareMap.dcMotor.get("arm");
+
+        leftClaw = hardwareMap.servo.get("claw");
 
 
         leftWheel.setDirection(DcMotor.Direction.REVERSE);
@@ -44,6 +50,11 @@ public class HKGamepadArcadeDriveTeleOp extends OpMode {
         leftWheel.setPower(-leftAndRightPower);
         rightWheel.setPower(leftAndRightPower);
 
+        if(gamepad1.x) {
+            leftClaw.setPosition(1);
+        } else {
+            leftClaw.setPosition(1);
+        }
 
         armPower = gamepad1.right_stick_y;
         if (armPower > 0 || armPower < 0) {
