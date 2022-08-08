@@ -53,7 +53,7 @@ public class HKGamepadArcadeDriveTeleOp extends OpMode {
         if(gamepad1.x) {
             leftClaw.setPosition(1);
         } else {
-            leftClaw.setPosition(1);
+            leftClaw.setPosition(0);
         }
 
         armPower = gamepad1.right_stick_y;
