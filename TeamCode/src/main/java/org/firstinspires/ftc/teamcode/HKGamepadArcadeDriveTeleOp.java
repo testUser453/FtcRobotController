@@ -62,8 +62,6 @@ public class HKGamepadArcadeDriveTeleOp extends OpMode {
 
         } else if(armPower == 0) {
             armControl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-
-
         }
 
 
