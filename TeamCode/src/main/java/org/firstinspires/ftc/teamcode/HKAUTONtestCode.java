@@ -20,7 +20,7 @@ public class HKAUTONtestCode extends LinearOpMode {
         rightWheel = hardwareMap.dcMotor.get("rightMotor");
         leftWheel.setDirection(DcMotor.Direction.REVERSE);
         armMotor = hardwareMap.dcMotor.get("arm");
-        clawServo = hardwareMap.servo.get("claw");
+        clawServo = hardwareMap.servo.get("pinch");
 
         armMotor.setPower(0);
 

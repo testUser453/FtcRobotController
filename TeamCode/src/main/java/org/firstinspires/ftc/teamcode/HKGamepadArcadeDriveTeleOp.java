@@ -29,7 +29,7 @@ public class HKGamepadArcadeDriveTeleOp extends OpMode {
         rightWheel = hardwareMap.dcMotor.get("rightMotor");
         armControl = hardwareMap.dcMotor.get("arm");
 
-        leftClaw = hardwareMap.servo.get("claw");
+        leftClaw = hardwareMap.servo.get("pinch");
 
 
         leftWheel.setDirection(DcMotor.Direction.REVERSE);
@@ -50,11 +50,13 @@ public class HKGamepadArcadeDriveTeleOp extends OpMode {
         leftWheel.setPower(-leftAndRightPower);
         rightWheel.setPower(leftAndRightPower);
 
-        if(gamepad1.x) {
-            leftClaw.setPosition(1);
-        } else {
-            leftClaw.setPosition(0);
-        }
+        //if(gamepad1.x) {
+        //leftClaw.setPosition(1);
+        //} else {
+          //  leftClaw.setPosition(0);
+        //}
+
+
 
         armPower = gamepad1.right_stick_y;
         if (armPower > 0 || armPower < 0) {
