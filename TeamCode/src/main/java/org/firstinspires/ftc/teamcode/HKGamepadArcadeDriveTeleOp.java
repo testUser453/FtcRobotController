@@ -22,6 +22,7 @@ public class HKGamepadArcadeDriveTeleOp extends OpMode {
     double frontAndBackPower;
     double leftAndRightPower;
     double armPower;
+    boolean clawPower;
 
     @Override
     public void init() {
@@ -50,11 +51,11 @@ public class HKGamepadArcadeDriveTeleOp extends OpMode {
         leftWheel.setPower(-leftAndRightPower);
         rightWheel.setPower(leftAndRightPower);
 
-        //if(gamepad1.x) {
-        //leftClaw.setPosition(1);
-        //} else {
-          //  leftClaw.setPosition(0);
-        //}
+        if (gamepad1.x) {
+            leftClaw.setPosition(.5);
+        } else if (gamepad1.y) {
+            leftClaw.setPosition(0);
+        }
 
 
 
@@ -65,8 +66,6 @@ public class HKGamepadArcadeDriveTeleOp extends OpMode {
         } else if(armPower == 0) {
             armControl.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         }
-
-
 
         armControl.setPower(armPower);
 

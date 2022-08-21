@@ -14,6 +14,11 @@ public class HKAUTONtestCode extends LinearOpMode {
     DcMotor armMotor;
     Servo clawServo;
 
+
+    double clawPower;
+
+
+
     @Override
     public void runOpMode() throws InterruptedException {
         leftWheel = hardwareMap.dcMotor.get("leftMotor");
@@ -23,6 +28,8 @@ public class HKAUTONtestCode extends LinearOpMode {
         clawServo = hardwareMap.servo.get("pinch");
 
         armMotor.setPower(0);
+
+
 
         waitForStart();
 
@@ -47,10 +54,15 @@ public class HKAUTONtestCode extends LinearOpMode {
 
         sleep(200);
 
-        // armMotor goes up at a power of .3 for 1/5th of a second
-        armMotor.setPower(.3);
 
-        sleep(200);
+
+
+
+        // armMotor goes up at a power of .3 for 1/5th of a second
+
+
+        armMotor.setPower(-1);
+        sleep(500);
 
         armMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
@@ -60,6 +72,12 @@ public class HKAUTONtestCode extends LinearOpMode {
         sleep(100);
 
         armMotor.setPower(0);
+
+
+
+
+
+
 
 
 
