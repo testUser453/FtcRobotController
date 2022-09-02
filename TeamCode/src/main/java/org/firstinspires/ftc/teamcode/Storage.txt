@@ -1,0 +1,38 @@
+rightWheel.setPower(pivot + (-vertical + horizontal));
+rightWheel_b.setPower(pivot + (-vertical - horizontal));
+leftWheel.setPower(pivot + (vertical - horizontal));
+leftWheel_b.setPower(pivot + (vertical + horizontal));
+
+
+
+
+
+Working code:
+rightWheel.setPower(pivot + (-vertical + horizontal));
+        rightWheel_b.setPower(pivot + (-vertical - horizontal));
+        leftWheel.setPower(pivot + (-vertical - horizontal));
+        leftWheel_b.setPower(pivot + (-vertical + horizontal));
+
+
+Original:
+
+        rightWheel.setPower(pivot + (-vertical + horizontal));
+        rightWheel_b.setPower(pivot + (-vertical - horizontal));
+        leftWheel.setPower(pivot + (-vertical - horizontal));
+        leftWheel_b.setPower(pivot + (-vertical + horizontal));
+
+Under public void drive train:
+
+double vertical;
+        double horizontal;
+        double pivot;
+        vertical = -gamepad1.left_stick_y;
+        horizontal = gamepad1.left_stick_x;
+        pivot = gamepad1.right_stick_x;
+
+
+
+        rightWheel.setPower(pivot + (-vertical + horizontal));
+                rightWheel_b.setPower(pivot + (-vertical - horizontal));
+                leftWheel.setPower(pivot + (-vertical - horizontal));
+                leftWheel_b.setPower(pivot + (-vertical + horizontal));

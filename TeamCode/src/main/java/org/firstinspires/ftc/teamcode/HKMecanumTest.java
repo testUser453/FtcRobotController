@@ -20,20 +20,6 @@ public class HKMecanumTest extends OpMode {
 
 
     public void moveDriveTrain(){
-        double vertical;
-        double horizontal;
-        double pivot;
-        vertical = -gamepad1.left_stick_y;
-        horizontal = gamepad1.left_stick_x;
-        pivot = gamepad1.right_stick_x;
-
-        rightWheel.setPower(pivot + (-vertical + horizontal));
-        rightWheel_b.setPower(pivot + (-vertical - horizontal));
-        leftWheel.setPower(pivot + (-vertical - horizontal));
-        leftWheel_b.setPower(pivot + (-vertical + horizontal));
-
-
-
 
 
 
@@ -42,14 +28,16 @@ public class HKMecanumTest extends OpMode {
     @Override
     public void init() {
 
-        leftWheel.setDirection(DcMotor.Direction.REVERSE);
-        leftWheel_b.setDirection(DcMotor.Direction.REVERSE);
+
 
 
         leftWheel = hardwareMap.get(DcMotor.class, "leftMotor");
         rightWheel = hardwareMap.get(DcMotor.class, "rightMotor");
         leftWheel_b = hardwareMap.get(DcMotor.class, "rearLeftMotor");
         rightWheel_b = hardwareMap.get(DcMotor.class, "rearRightMotor");
+
+        /* leftWheel.setDirection(DcMotor.Direction.REVERSE);
+        leftWheel_b.setDirection(DcMotor.Direction.REVERSE); */
 
 
     }
@@ -65,7 +53,23 @@ public class HKMecanumTest extends OpMode {
 
     @Override
     public void loop() {
-        armPower = gamepad1.right_trigger;
+        double vertical;
+        double horizontal;
+        double pivot;
+        vertical = gamepad1.left_stick_y; /*originally negative*/
+        horizontal = -gamepad1.left_stick_x; /* originally positive*/
+        pivot = gamepad1.right_stick_x;
+
+        rightWheel.setPower(-pivot + (-vertical + horizontal));
+        rightWheel_b.setPower(-pivot + (-vertical - horizontal));
+        leftWheel.setPower(pivot + (-vertical - horizontal));
+        leftWheel_b.setPower(pivot + (-vertical + horizontal));
+
+
+
+
+
+        /* armPower = gamepad1.right_trigger;
         if (armPower > 0 || armPower < 0) {
             armControl.setPower(armPower);
         } else if (armPower == 0) {
@@ -74,5 +78,7 @@ public class HKMecanumTest extends OpMode {
         }
 
         armControl.setPower(armPower);
+        */
+
     }
 }
